@@ -1,0 +1,12 @@
+# Local end-to-end demo (HS256). Set GATEWAY_HS256_SECRET in the environment.
+upstream_url: http://127.0.0.1:8000/mcp
+resource_url: http://127.0.0.1:8080/mcp
+issuer: https://idp.example.test/
+audience: http://127.0.0.1:8080/mcp
+default_scope: mcp:read
+tool_scopes:
+  index_summary: mcp:read
+  search_instruments: mcp:read
+  calibration_due: mcp:maint
+tool_scope_fallback: null
+audit_log: audit.jsonl

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-auth-gateway"
+version = "0.1.0"
+description = "OAuth 2.1 resource-server gateway for MCP servers: JWT validation, per-tool scopes, RFC 9728 metadata, rate limiting, audit log"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["starlette>=0.37,<2", "httpx>=0.27", "PyJWT[crypto]>=2.8", "PyYAML>=6", "uvicorn>=0.29"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+e2e = ["mcp>=1.24"]   # only for examples/e2e_client.py
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

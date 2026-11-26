@@ -1,0 +1,14 @@
+# Example configuration. Secrets are never stored here.
+upstream_url: http://127.0.0.1:8000/mcp
+resource_url: https://mcp.example.com/mcp
+issuer: https://idp.example.com/
+audience: https://mcp.example.com/mcp
+jwks_url: https://idp.example.com/.well-known/jwks.json
+default_scope: mcp:read
+tool_scopes:
+  search_instruments: mcp:read
+  get_instrument: mcp:read
+  calibration_due: mcp:maint
+tool_scope_fallback: null        # tools not listed above are blocked
+rate_per_minute: 120
+audit_log: audit.jsonl
